@@ -36,6 +36,36 @@ c::set('wrapper_tags', ['columns']);
 </div>
 ```
 
+## Configuration
+
+You can specify wrapper tags as strings or arrays with *tag* and *classname* keys. Arrays are useful when you want the tag and the associated classname to be different.
+
+**config.php**
+
+```php
+c::set('wrapper_tags', [
+  [
+    'tag' => 'gallery',
+    'classname' => 'image-gallery',
+  ],
+  'slideshow',
+]);
+```
+
+**kirbytext**
+
+```md
+(gallery)(/gallery)
+(slideshow)(/slideshow)
+```
+
+**output**
+
+```html
+<div class="image-gallery"></div>
+<div class="slideshow"></div>
+```
+
 ## Notes
 
 You can add as many wrapper tags as you need:
