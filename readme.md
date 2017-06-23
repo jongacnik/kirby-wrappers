@@ -66,6 +66,22 @@ c::set('wrapper_tags', [
 <div class="slideshow"></div>
 ```
 
+## Passing Data
+
+You can optionally pass additional data into data-attributes:
+
+**kirbytext**
+
+```md
+(gallery size: large)(/gallery)
+```
+
+**output**
+
+```html
+<div class="gallery" data-size="large"></div>
+```
+
 ## Notes
 
 You can add as many wrapper tags as you need:
