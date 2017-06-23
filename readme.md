@@ -38,7 +38,7 @@ c::set('wrapper_tags', ['columns']);
 
 ## Configuration
 
-You can specify wrapper tags as strings or arrays with *tag* and *classname* keys. Arrays are useful when you want the tag and the associated classname to be different.
+You can specify wrapper tags as strings or arrays with *tag*, *classname*, and *element* keys. Arrays are useful when you want the tag and the associated classname to be different, or you want to use an element other than `div`.
 
 **config.php**
 
@@ -48,6 +48,10 @@ c::set('wrapper_tags', [
     'tag' => 'gallery',
     'classname' => 'image-gallery',
   ],
+  [
+    'tag' => 'card',
+    'element' => 'article',
+  ],
   'slideshow',
 ]);
 ```
@@ -56,6 +60,7 @@ c::set('wrapper_tags', [
 
 ```md
 (gallery)(/gallery)
+(card)(/card)
 (slideshow)(/slideshow)
 ```
 
@@ -63,6 +68,7 @@ c::set('wrapper_tags', [
 
 ```html
 <div class="image-gallery"></div>
+<article class="card"></article>
 <div class="slideshow"></div>
 ```
 
