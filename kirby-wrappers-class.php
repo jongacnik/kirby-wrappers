@@ -17,7 +17,7 @@ class kirbyWrappers {
       // stringify data-attributes
       $attributes = self::dataAttributify($search);
 
-      return '<' . $options['element'] . ' class="' . $options['classname'] . '"'. ($attributes ? ' ' . $attributes : '') . '>' . $matches[3] . '</' . $options['element'] . '>';
+      return '<' . $options['element'] . ' class="' . $options['classname'] . '"'. ($attributes ? ' ' . $attributes : '') . '>' . kirbytext($matches[3]) . '</' . $options['element'] . '>';
     }, $string);
 
     return $string;
