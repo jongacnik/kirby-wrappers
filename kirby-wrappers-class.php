@@ -2,14 +2,14 @@
 
 class kirbyWrappers {
 
-  public static function replace ($string, $tag) {
+  public static function replace ($string, $tag, $kirbytext) {
     $options = [];
     $options['tag'] = is_array($tag) && isset($tag['tag']) ? $tag['tag'] : $tag;
     $options['classname'] = is_array($tag) && isset($tag['classname']) ? $tag['classname'] : $options['tag'];
     $options['element'] = is_array($tag) && isset($tag['element']) ? $tag['element'] : 'div';
 
     // opting for simple ([^\)]*) instead of kirby core style of matching attributes (?:\s([a-z0-9_-]+:.*))*
-    $string = preg_replace_callback('!(\(' . $options['tag'] . '([^\)]*)\))([\s\S]*?)(\(\/' . $options['tag'] . '\))!is', function ($matches) use ($options) {
+    $string = preg_replace_callback('!(\(' . $options['tag'] . '([^\)]*)\))([\s\S]*?)(\(\/' . $options['tag'] . '\))!is', function ($matches) use ($options, $kirbytext) {
      
       // split attributes
       $search = preg_split('!([^:\s]+):!i', trim($matches[2]), false, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
@@ -17,7 +17,9 @@ class kirbyWrappers {
       // stringify data-attributes
       $attributes = self::dataAttributify($search);
 
-      return '<' . $options['element'] . ' class="' . $options['classname'] . '"'. ($attributes ? ' ' . $attributes : '') . '>' . kirbytext($matches[3]) . '</' . $options['element'] . '>';
+      $field = new Field($kirbytext->field->page, null, trim($matches[3]));
+
+      return '<' . $options['element'] . ' class="' . $options['classname'] . '"'. ($attributes ? ' ' . $attributes : '') . '>' . kirbytext($field) . '</' . $options['element'] . '>';
     }, $string);
 
     return $string;

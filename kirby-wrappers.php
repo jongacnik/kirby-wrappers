@@ -19,7 +19,7 @@ require_once('kirby-wrappers-class.php');
 kirbytext::$pre[] = function($kirbytext, $value) {
   $wrappedValue = $value;
   foreach (c::get('wrapper_tags', []) as $tag) {
-    $wrappedValue = kirbyWrappers::replace($wrappedValue, $tag);
+    $wrappedValue = kirbyWrappers::replace($wrappedValue, $tag, $kirbytext);
   }
   return $wrappedValue;
 };
