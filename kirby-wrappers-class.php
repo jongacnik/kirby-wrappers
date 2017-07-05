@@ -9,7 +9,7 @@ class kirbyWrappers {
     $options['element'] = is_array($tag) && isset($tag['element']) ? $tag['element'] : 'div';
 
     // opting for simple ([^\)]*) instead of kirby core style of matching attributes (?:\s([a-z0-9_-]+:.*))*
-    $string = preg_replace_callback('!(\(' . $options['tag'] . '([^\)]*)\))([\s\S]*)(\(\/' . $options['tag'] . '\))!is', function ($matches) use ($options) {
+    $string = preg_replace_callback('!(\(' . $options['tag'] . '([^\)]*)\))([\s\S]*?)(\(\/' . $options['tag'] . '\))!is', function ($matches) use ($options) {
      
       // split attributes
       $search = preg_split('!([^:\s]+):!i', trim($matches[2]), false, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
