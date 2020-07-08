@@ -7,7 +7,7 @@ Simple wrapper tags for Kirbytext.
 ## Installation
 
 ```
-composer require monoeq/kirby-wrappers
+composer require jg/kirby-wrappers
 ```
 
 <details>
@@ -20,7 +20,7 @@ Download and copy this repository to `/site/plugins/kirby-wrappers`.
 ### Git submodule
 
 ```
-git submodule add https://github.com/monoeq/kirby-wrappers.git site/plugins/kirby-wrappers
+git submodule add https://github.com/jg/kirby-wrappers.git site/plugins/kirby-wrappers
 ```
 </details>
 
@@ -32,7 +32,7 @@ Let's create a `columns` wrapper.
 
 ```php
 return [
-  'monoeq.wrappers' => ['columns']
+  'jg.wrappers' => ['columns']
 ];
 ```
 
@@ -66,7 +66,7 @@ You can specify wrapper tags as `Strings` or `Arrays` with `wrapper`, `class`, `
 
 ```php
 return [
-  'monoeq.wrappers' => [
+  'jg.wrappers' => [
     'center', // ← simplest
     [
       'wrapper' => 'gallery',
