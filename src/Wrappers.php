@@ -1,6 +1,6 @@
 <?php
 
-namespace Monoeq\KirbyWrappers;
+namespace JG\KirbyWrappers;
 
 use Kirby\Toolkit\Html;
 
